@@ -1,15 +1,15 @@
 :root {
-  --ink: #15201b;
-  --soft-ink: #394a42;
-  --mist: #f5f7f7;
+  --ink: #181716;
+  --soft-ink: #4f4b47;
+  --mist: #f6f7f8;
   --white: #ffffff;
-  --green: #24523d;
-  --mint: #dcefe4;
-  --rose: #c84a62;
-  --sky: #c8e8f2;
-  --gold: #d7a84f;
-  --line: #d9e2dd;
-  --shadow: 0 24px 70px rgb(21 32 27 / 16%);
+  --charcoal: #2d2b28;
+  --mist-blue: #e8eef1;
+  --rose: #c84861;
+  --sky: #d7edf1;
+  --gold: #d9a845;
+  --line: #ded7cf;
+  --shadow: 0 28px 90px rgb(21 32 27 / 18%);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -25,6 +25,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--mist);
+  overflow-x: hidden;
 }
 
 body.menu-open {
@@ -103,9 +104,11 @@ h3 {
   justify-content: space-between;
   gap: 22px;
   padding: 14px clamp(18px, 4vw, 58px);
-  background: rgb(255 255 255 / 82%);
-  border-bottom: 1px solid rgb(21 32 27 / 12%);
-  backdrop-filter: blur(18px);
+  background: rgb(247 243 238 / 82%);
+  border-bottom: 1px solid rgb(24 23 22 / 10%);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 10px 32px rgb(24 23 22 / 5%);
+  transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
 }
 
 .brand {
@@ -144,7 +147,27 @@ h3 {
 }
 
 .nav-links a {
+  position: relative;
   text-decoration: none;
+}
+
+.nav-links a:not(.button)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  background: var(--rose);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .24s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after,
+.nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
 }
 
 .button {
@@ -158,12 +181,19 @@ h3 {
   font-weight: 850;
   text-decoration: none;
   cursor: pointer;
+  transition: transform .22s ease, box-shadow .22s ease, background-color .22s ease, border-color .22s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
 }
 
 .button.primary {
   color: var(--white);
-  background: var(--rose);
-  border-color: var(--rose);
+  background: linear-gradient(135deg, #c84861, #9e3448);
+  border-color: #c84861;
+  box-shadow: 0 14px 34px rgb(200 72 97 / 28%);
 }
 
 .button.dark {
@@ -179,10 +209,10 @@ h3 {
 
 .hero {
   position: relative;
-  min-height: 92svh;
+  min-height: 94svh;
   display: grid;
   align-items: end;
-  padding: 122px clamp(18px, 6vw, 78px) clamp(42px, 8vw, 92px);
+  padding: 122px clamp(18px, 6vw, 78px) clamp(30px, 5vw, 58px);
   overflow: hidden;
   color: var(--white);
 }
@@ -191,19 +221,57 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("assets/hero-composite.svg");
+  background-image: url("assets/bungalow-exterior.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 44%;
+  transform: scale(1.02);
+  animation: heroImageSettle 1100ms ease-out both;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(16 15 14 / 88%) 0%, rgb(16 15 14 / 58%) 42%, rgb(16 15 14 / 10%) 74%),
+    linear-gradient(0deg, rgb(16 15 14 / 72%) 0%, rgb(16 15 14 / 8%) 44%, rgb(255 255 255 / 8%) 100%);
+}
+
+.photo-hero {
+  isolation: isolate;
+}
+
+.hero-art {
+  position: absolute;
+  z-index: 1;
+  right: clamp(-110px, -5vw, -40px);
+  top: clamp(92px, 15vh, 180px);
+  width: min(58vw, 860px);
+  opacity: .64;
+  mix-blend-mode: screen;
+  filter: saturate(.88) contrast(1.08) drop-shadow(0 28px 60px rgb(0 0 0 / 32%));
+  transform: rotate(-2deg);
+  animation: artDrift 9000ms ease-in-out infinite alternate;
+}
+
+.hero-art img {
+  width: 100%;
+  border-radius: 0;
+  mask-image: radial-gradient(ellipse at center, #000 44%, rgb(0 0 0 / 70%) 58%, transparent 78%);
 }
 
 .hero-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(250px, 420px);
+  grid-template-columns: minmax(280px, .9fr);
   align-items: end;
-  gap: clamp(28px, 7vw, 110px);
+  gap: 28px;
   width: 100%;
+}
+
+.hero-copy {
+  max-width: min(calc(100vw - 44px), 780px);
 }
 
 .eyebrow {
@@ -221,46 +289,44 @@ h3 {
 }
 
 .hero p:not(.eyebrow) {
-  max-width: 650px;
+  max-width: min(calc(100vw - 44px), 690px);
   color: rgb(255 255 255 / 88%);
   font-size: clamp(1.05rem, 2vw, 1.3rem);
 }
 
-.hero-card {
-  padding: 22px;
-  background: rgb(255 255 255 / 90%);
-  border: 1px solid rgb(255 255 255 / 42%);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  color: var(--ink);
-}
-
-.hero-card img {
-  width: 100%;
-  border-radius: 6px;
-  border: 1px solid var(--line);
-}
-
-.hero-card dl,
 .feature-list {
   margin: 18px 0 0;
 }
 
-.hero-card dl {
+.hero-facts {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(130px, 1fr));
+  gap: 1px;
+  width: min(940px, 100%);
+  margin: clamp(32px, 7vw, 76px) 0 0;
+  padding: 0;
+  background: rgb(255 255 255 / 20%);
+  border: 1px solid rgb(255 255 255 / 26%);
+  border-radius: 8px;
+  overflow: hidden;
+  backdrop-filter: blur(18px);
 }
 
-.hero-card dt {
-  color: var(--soft-ink);
+.hero-facts div {
+  padding: 18px;
+  background: rgb(255 255 255 / 11%);
+}
+
+.hero-facts dt {
+  color: rgb(255 255 255 / 64%);
   font-size: .8rem;
   font-weight: 800;
   text-transform: uppercase;
 }
 
-.hero-card dd {
+.hero-facts dd {
   margin: 4px 0 0;
+  color: var(--white);
   font-weight: 850;
 }
 
@@ -277,6 +343,50 @@ h3 {
 
 .section.white {
   background: var(--white);
+}
+
+.opening {
+  display: grid;
+  grid-template-columns: minmax(280px, .9fr) minmax(280px, .82fr);
+  gap: clamp(24px, 6vw, 92px);
+  align-items: end;
+  border-bottom: 1px solid var(--line);
+}
+
+.visual-story {
+  display: grid;
+  grid-template-columns: minmax(300px, 1.05fr) minmax(300px, .95fr);
+  min-height: 720px;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.story-photo {
+  min-height: 560px;
+}
+
+.story-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-copy {
+  display: grid;
+  align-content: center;
+  padding: clamp(40px, 7vw, 86px);
+  background:
+    linear-gradient(145deg, rgb(45 43 40 / 96%), rgb(24 23 22 / 96%)),
+    url("assets/bungalow-logo.jpg") center / 135% auto;
+}
+
+.story-copy p,
+.story-copy li {
+  color: rgb(255 255 255 / 78%);
+}
+
+.story-copy .feature-list li {
+  border-left-color: var(--gold);
 }
 
 .split {
@@ -330,7 +440,9 @@ h3 {
 .facts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: var(--green);
+  background:
+    linear-gradient(135deg, rgb(45 43 40 / 98%), rgb(28 26 24 / 98%)),
+    url("assets/bungalow-logo.jpg") center / 780px auto;
   color: var(--white);
 }
 
@@ -366,10 +478,142 @@ h3 {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 8px;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgb(200 72 97 / 38%);
+  box-shadow: 0 24px 60px rgb(24 23 22 / 12%);
+}
+
+.calm-section {
+  background:
+    linear-gradient(180deg, #f6f7f8, #e8eef1);
+}
+
+.section-title-row {
+  display: grid;
+  grid-template-columns: minmax(280px, .9fr) minmax(280px, .72fr);
+  gap: clamp(24px, 6vw, 90px);
+  align-items: end;
+}
+
+.editorial-cards .card {
+  min-height: 270px;
+  box-shadow: 0 18px 45px rgb(21 32 27 / 8%);
+}
+
+.editorial-cards .card:nth-child(2) {
+  transform: translateY(28px);
+}
+
+.editorial-cards .card:nth-child(2):hover {
+  transform: translateY(20px);
+}
+
+.editorial-cards .card:nth-child(3) {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.editorial-cards .card:nth-child(3) p {
+  color: rgb(255 255 255 / 74%);
+}
+
+.local-gallery {
+  display: grid;
+  grid-template-columns: 1.25fr .85fr .85fr;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.place-tile {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--ink);
+}
+
+.place-tile:first-child {
+  min-height: 520px;
+}
+
+.place-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.96) contrast(1.04);
+  transition: transform .7s ease, filter .7s ease;
+}
+
+.place-tile:hover img {
+  transform: scale(1.045);
+  filter: saturate(1.04) contrast(1.07);
+}
+
+.place-tile figcaption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 14px;
+  color: var(--white);
+  background: rgb(16 15 14 / 72%);
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+}
+
+.place-tile strong,
+.place-tile span {
+  display: block;
+}
+
+.place-tile span {
+  margin-top: 4px;
+  color: rgb(255 255 255 / 76%);
+  font-size: .92rem;
+}
+
+.review-strip {
+  display: grid;
+  grid-template-columns: minmax(240px, .8fr) minmax(300px, 1.2fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: center;
+  padding: clamp(46px, 7vw, 86px) clamp(18px, 6vw, 78px);
+  background: var(--white);
+  border-block: 1px solid var(--line);
+}
+
+.review-score {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: .86;
+  color: var(--rose);
+}
+
+.review-strip blockquote {
+  margin: 0;
+}
+
+.review-strip p {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.4vw, 1.85rem);
+  line-height: 1.45;
+}
+
+.review-strip cite {
+  display: block;
+  margin-top: 16px;
+  color: var(--soft-ink);
+  font-style: normal;
+  font-weight: 800;
 }
 
 .tinted {
-  background: linear-gradient(135deg, var(--mint), var(--sky));
+  background: linear-gradient(135deg, var(--mist-blue), var(--sky));
 }
 
 .panel-dark {
@@ -379,8 +623,15 @@ h3 {
   align-items: center;
   color: var(--white);
   background:
-    linear-gradient(90deg, rgb(21 32 27 / 92%), rgb(21 32 27 / 66%)),
+    linear-gradient(90deg, rgb(24 23 22 / 92%), rgb(24 23 22 / 66%)),
     url("assets/bungalow-exterior.jpg") center / cover;
+}
+
+.scenic-panel {
+  min-height: 620px;
+  background:
+    linear-gradient(90deg, rgb(24 23 22 / 94%), rgb(24 23 22 / 62%) 56%, rgb(24 23 22 / 16%)),
+    url("assets/bungalow-exterior.jpg") center 42% / cover;
 }
 
 .panel-dark p {
@@ -398,7 +649,7 @@ h3 {
 .page-hero {
   padding: 136px clamp(18px, 6vw, 78px) clamp(56px, 8vw, 92px);
   background:
-    linear-gradient(90deg, rgb(21 32 27 / 90%), rgb(21 32 27 / 50%)),
+    linear-gradient(90deg, rgb(24 23 22 / 90%), rgb(24 23 22 / 50%)),
     url("assets/hero-composite.svg") center / cover;
   color: var(--white);
 }
@@ -478,6 +729,7 @@ h3 {
 
 .cookie-banner.show {
   display: flex;
+  animation: cookieIn .3s ease-out both;
 }
 
 .cookie-banner p {
@@ -532,10 +784,71 @@ h3 {
   font-size: .92rem;
 }
 
+.is-enhanced .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.is-enhanced .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes copyRise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroImageSettle {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes artDrift {
+  from {
+    transform: rotate(-2deg) translate3d(0, 0, 0);
+  }
+  to {
+    transform: rotate(-1deg) translate3d(-10px, 8px, 0);
+  }
+}
+
+@keyframes cookieIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 900px) {
+  .site-header {
+    padding: 12px 14px;
+  }
+
   .nav-toggle {
+    position: fixed;
+    top: 12px;
+    right: 14px;
+    z-index: 36;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
   }
 
   .nav-links {
@@ -559,6 +872,9 @@ h3 {
 
   .hero-inner,
   .split,
+  .opening,
+  .visual-story,
+  .section-title-row,
   .panel-dark,
   .footer-grid {
     grid-template-columns: 1fr;
@@ -566,26 +882,94 @@ h3 {
 
   .facts,
   .cards,
+  .local-gallery,
+  .review-strip,
   .contact-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .hero {
-    min-height: 86svh;
+    min-height: 88svh;
+  }
+
+  .hero-art {
+    right: -180px;
+    top: 120px;
+    width: min(100vw, 680px);
+    opacity: .42;
+  }
+
+  .hero-facts {
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+  }
+
+  .visual-story {
+    min-height: 0;
+  }
+
+  .story-photo {
+    min-height: 430px;
+  }
+
+  .place-tile:first-child {
+    min-height: 360px;
+  }
+
+  .editorial-cards .card:nth-child(2) {
+    transform: none;
+  }
+
+  .editorial-cards .card:nth-child(2):hover {
+    transform: translateY(-6px);
   }
 }
 
 @media (max-width: 560px) {
+  .site-header {
+    gap: 10px;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+  }
+
   .brand span {
-    max-width: 170px;
+    max-width: 160px;
     font-size: .9rem;
   }
 
-  .hero-card dl,
+  .hero-facts,
   .facts,
   .cards,
+  .local-gallery,
+  .review-strip,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  h1 {
+    max-width: 9ch;
+    font-size: clamp(2.28rem, 11vw, 2.9rem);
+    line-height: .98;
+  }
+
+  .hero p:not(.eyebrow) {
+    font-size: 1rem;
+  }
+
+  .hero {
+    min-height: 86svh;
+    padding-bottom: 24px;
+  }
+
+  .hero-art {
+    right: -210px;
+    top: 118px;
+    width: 720px;
+  }
+
+  .hero-facts div {
+    padding: 14px;
   }
 
   .button {
@@ -599,5 +983,21 @@ h3 {
 
   .cookie-actions {
     flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .is-enhanced .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

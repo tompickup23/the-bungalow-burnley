@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1200" role="img" aria-labelledby="title desc">
   <title id="title">The Bungalow Burnley exterior with illustrated overlay</title>
-  <desc id="desc">A layered composition using the cottage photograph and the hand-drawn Bungalow Burnley artwork.</desc>
+  <desc id="desc">A layered composition using the bungalow photograph and the hand-drawn Bungalow Burnley artwork.</desc>
   <defs>
     <linearGradient id="shade" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0" stop-color="#07120e" stop-opacity=".88"/>
