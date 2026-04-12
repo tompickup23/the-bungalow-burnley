@@ -3,140 +3,155 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Bungalow Burnley | Holiday Cottage in Lancashire</title>
-    <meta
-      name="description"
-      content="The Bungalow Burnley is a one-bedroom holiday cottage for two in Burnley, Lancashire, with WiFi, garden space and off-road parking."
-    >
+    <title>The Bungalow Burnley | One-Bedroom Holiday Cottage in Lancashire</title>
+    <meta name="description" content="The Bungalow Burnley is a one-bedroom holiday cottage for two in Burnley, Lancashire, with WiFi, garden space, off-road parking and countryside close by.">
     <meta property="og:title" content="The Bungalow Burnley">
-    <meta
-      property="og:description"
-      content="A quiet one-bedroom holiday cottage for two in Burnley, Lancashire."
-    >
-    <meta property="og:image" content="assets/bungalow-exterior.jpg">
+    <meta property="og:description" content="A quiet one-bedroom holiday cottage for two in Burnley, Lancashire.">
+    <meta property="og:image" content="assets/hero-composite.svg">
     <meta property="og:type" content="website">
     <link rel="icon" href="assets/favicon.jpg">
     <link rel="stylesheet" href="styles.css">
+    <script src="site.js" defer></script>
   </head>
   <body>
-    <header class="site-header" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="The Bungalow Burnley home">
-        <img src="assets/favicon.jpg" alt="" width="42" height="42">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="The Bungalow Burnley home">
+        <img src="assets/favicon.jpg" alt="">
         <span>The Bungalow Burnley</span>
       </a>
-      <nav>
-        <a href="#stay">Stay</a>
-        <a href="#details">Details</a>
-        <a href="#location">Location</a>
+      <button class="nav-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a href="stay.html">Stay</a>
+        <a href="local-area.html">Local Area</a>
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Contact</a>
+        <a class="button dark" href="booking.html">Check dates</a>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-label="The Bungalow Burnley">
-        <img src="assets/bungalow-exterior.jpg" alt="The Bungalow Burnley exterior and patio">
-        <div class="hero-copy">
-          <p class="eyebrow">Burnley, Lancashire</p>
-          <h1>A quiet cottage stay for two</h1>
-          <p>
-            The Bungalow is a one-bedroom holiday cottage close to Burnley, with simple comforts,
-            ground-floor living and easy access to countryside walks.
-          </p>
-          <div class="actions">
-            <a class="button primary" href="https://www.cottagesandlodges.co.uk/properties/the-bungalow-burnley/">Check availability</a>
-            <a class="button secondary" href="#details">View details</a>
+    <main id="main">
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">Burnley, Lancashire</p>
+            <h1>A quiet cottage stay for two</h1>
+            <p>The Bungalow is a calm one-bedroom base close to Burnley, made for slow mornings, nearby walks and simple evenings after a day in Lancashire.</p>
+            <div class="actions">
+              <a class="button primary" href="booking.html">Plan your stay</a>
+              <a class="button light" href="stay.html">Explore the cottage</a>
+            </div>
           </div>
+          <aside class="hero-card" aria-label="Stay summary">
+            <img src="assets/bungalow-logo.jpg" alt="The Bungalow Burnley illustrated artwork">
+            <dl>
+              <div><dt>Sleeps</dt><dd>2 guests</dd></div>
+              <div><dt>Bedrooms</dt><dd>1 bedroom</dd></div>
+              <div><dt>Parking</dt><dd>1 space</dd></div>
+              <div><dt>Best for</dt><dd>Couples</dd></div>
+            </dl>
+          </aside>
         </div>
       </section>
 
-      <section class="intro" id="stay">
+      <section class="section white split">
+        <div class="media-frame">
+          <img src="assets/bungalow-exterior.jpg" alt="The Bungalow Burnley patio and exterior">
+        </div>
         <div>
-          <img class="logo-panel" src="assets/bungalow-logo.jpg" alt="The Bungalow Burnley illustrated logo">
-        </div>
-        <div>
-          <p class="eyebrow">A simple Lancashire base</p>
-          <h2>Settle in, slow down, and keep Burnley close.</h2>
-          <p>
-            Designed for two guests, The Bungalow keeps the essentials close at hand:
-            a comfortable bedroom, WiFi, a shared patio, parking and nearby shops, pubs and walks.
-          </p>
-          <p>
-            Availability, current prices and final booking terms are handled by the booking partner.
-          </p>
+          <p class="eyebrow">The cottage</p>
+          <h2>Ground-floor comfort, tucked close to town and hills.</h2>
+          <p class="lead">The Bungalow keeps the stay straightforward: a comfortable bedroom, bathroom, WiFi, kitchen essentials, a shared patio and parking. Burnley is close by, while Pendle Hill, Towneley Park and wider Lancashire routes are easy to reach.</p>
+          <ul class="feature-list">
+            <li>One-bedroom accommodation for two guests.</li>
+            <li>Ground-floor bedroom with a step up into the shower.</li>
+            <li>WiFi, TV, DVD, DAB radio and practical kitchen equipment.</li>
+            <li>Shared patio, outdoor furniture and off-road parking for one car.</li>
+          </ul>
         </div>
       </section>
 
-      <section class="facts" aria-label="Quick facts">
-        <article>
-          <strong>Sleeps 2</strong>
-          <span>One bedroom</span>
-        </article>
-        <article>
-          <strong>1 bathroom</strong>
-          <span>Ground-floor bedroom</span>
-        </article>
-        <article>
-          <strong>WiFi</strong>
-          <span>TV, DVD and DAB radio</span>
-        </article>
-        <article>
-          <strong>Parking</strong>
-          <span>Off-road space for one car</span>
-        </article>
+      <section class="facts" aria-label="Key cottage facts">
+        <article><strong>Sleeps 2</strong><span>One bedroom for a couple or solo guest.</span></article>
+        <article><strong>WiFi</strong><span>Set up for everyday browsing and planning.</span></article>
+        <article><strong>Parking</strong><span>Off-road parking for one car.</span></article>
+        <article><strong>No pets</strong><span>No smoking and no pets listed.</span></article>
       </section>
 
-      <section class="details" id="details">
-        <div class="section-heading">
-          <p class="eyebrow">Before you book</p>
-          <h2>Useful details for planning your stay</h2>
-        </div>
-        <div class="detail-grid">
-          <article>
-            <h3>Inside</h3>
-            <p>
-              Oven and hob, microwave, fridge, freezer, washer/dryer, iron, ironing board,
-              hairdryer, TV, DVD, DAB radio and WiFi.
-            </p>
+      <section class="section">
+        <p class="eyebrow">Plan with confidence</p>
+        <h2>Clear information before you book.</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>What is included</h3>
+            <p>Fuel, power, bed linen and towels are listed as included by the booking partner. Final inclusions are confirmed at the point of booking.</p>
           </article>
-          <article>
-            <h3>Outside</h3>
-            <p>
-              A shared patio with outdoor furniture, off-road parking for one car, and garden space
-              for a quiet morning or evening.
-            </p>
+          <article class="card">
+            <h3>Arrival and departure</h3>
+            <p>Published check-in is from 4pm and check-out is by 10am. Always check your booking confirmation for the latest arrival instructions.</p>
           </article>
-          <article>
-            <h3>Good to know</h3>
-            <p>
-              Sorry, no pets and no smoking. Check-in is listed from 4pm, with check-out by 10am.
-              There is a step up into the shower.
-            </p>
+          <article class="card">
+            <h3>Booking terms</h3>
+            <p>Availability, payment, cancellations and booking conditions are handled by the booking partner. This website does not take payments.</p>
           </article>
         </div>
       </section>
 
-      <section class="location" id="location">
+      <section class="section panel-dark">
         <div>
-          <p class="eyebrow">Nearby</p>
-          <h2>Burnley on the doorstep, hills within reach.</h2>
+          <p class="eyebrow">Local days out</p>
+          <h2>Town, parks, moorland and big Lancashire skies.</h2>
+          <p>Use Burnley as a practical base for local food, shops and heritage, then head out towards Towneley Park, Pendle Hill, the Forest of Bowland and the Yorkshire Dales.</p>
         </div>
-        <p>
-          The Bungalow is close to Burnley, with shops and pubs nearby and routes out towards
-          Pendle Hill, the Forest of Bowland and the Yorkshire Dales.
-        </p>
-      </section>
-
-      <section class="booking">
-        <div>
-          <p class="eyebrow">Ready to check dates?</p>
-          <h2>See availability and current pricing.</h2>
+        <div class="notice">
+          <strong>Before travelling</strong>
+          <p>Check opening times, access details and weather before setting off, especially for countryside routes and seasonal attractions.</p>
+          <a class="button dark" href="local-area.html">Explore nearby</a>
         </div>
-        <a class="button primary" href="https://www.cottagesandlodges.co.uk/properties/the-bungalow-burnley/">Check availability</a>
       </section>
     </main>
 
-    <footer>
-      <p>The Bungalow Burnley</p>
-      <a href="#top">Back to top</a>
+    <div class="cookie-banner" data-cookie-banner role="region" aria-label="Cookie notice">
+      <p>This site uses only essential browser storage to remember this notice. There are no analytics or advertising cookies.</p>
+      <div class="cookie-actions">
+        <button class="button dark" type="button" data-cookie-accept>Accept</button>
+        <button class="button" type="button" data-cookie-reject>Necessary only</button>
+        <a href="cookies.html">Cookie policy</a>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="assets/bungalow-logo.jpg" alt="The Bungalow Burnley">
+          <p>A one-bedroom holiday cottage for two in Burnley, Lancashire.</p>
+        </div>
+        <div>
+          <strong>Stay</strong>
+          <ul>
+            <li><a href="stay.html">Cottage details</a></li>
+            <li><a href="local-area.html">Local area</a></li>
+            <li><a href="booking.html">Booking</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Support</strong>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="accessibility.html">Accessibility</a></li>
+            <li><a href="terms.html">Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Legal</strong>
+          <ul>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+            <li><a href="safety.html">Safety</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="legal-note">Direct owner/operator details must be confirmed before custom-domain launch. Availability and payments are currently handled by the booking partner.</p>
     </footer>
   </body>
 </html>
