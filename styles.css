@@ -613,6 +613,99 @@ h3 {
   font-weight: 800;
 }
 
+.guest-reviews {
+  position: relative;
+  overflow: hidden;
+}
+
+.guest-reviews::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: min(22vw, 260px);
+  background: linear-gradient(90deg, rgb(216 168 69 / 12%), transparent);
+  pointer-events: none;
+}
+
+.review-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.12fr .88fr .88fr;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.review-card {
+  position: relative;
+  min-height: 250px;
+  margin: 0;
+  padding: clamp(22px, 3vw, 34px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 26px;
+  background: linear-gradient(180deg, #ffffff, #f8f7f4);
+  border: 1px solid rgb(216 168 69 / 36%);
+  border-radius: 8px;
+  box-shadow: 0 20px 55px rgb(24 23 22 / 8%);
+}
+
+.review-card:first-child {
+  grid-row: span 2;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 94%), rgb(248 247 244 / 94%)),
+    url("assets/interior-living.jpg") center / cover;
+}
+
+.review-card:nth-child(2) {
+  background: var(--ink);
+  color: var(--white);
+  border-color: rgb(255 255 255 / 18%);
+}
+
+.review-card:nth-child(2) p,
+.review-card:nth-child(2) cite {
+  color: rgb(255 255 255 / 82%);
+}
+
+.review-card::before {
+  content: "5.0";
+  width: fit-content;
+  padding: 6px 10px;
+  color: var(--ink);
+  background: rgb(216 168 69 / 22%);
+  border: 1px solid rgb(216 168 69 / 42%);
+  border-radius: 999px;
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.review-card:nth-child(2)::before {
+  color: var(--white);
+  background: rgb(255 255 255 / 12%);
+  border-color: rgb(255 255 255 / 22%);
+}
+
+.review-card p {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.12rem, 1.6vw, 1.55rem);
+  line-height: 1.36;
+}
+
+.review-card:first-child p {
+  font-size: clamp(1.35rem, 2.2vw, 2.15rem);
+  line-height: 1.22;
+}
+
+.review-card cite {
+  color: var(--soft-ink);
+  font-style: normal;
+  font-weight: 850;
+}
+
 .tinted {
   background: linear-gradient(135deg, var(--mist-blue), var(--sky));
 }
@@ -1061,6 +1154,7 @@ h3 {
   .area-grid,
   .itinerary-grid,
   .route-list,
+  .review-grid,
   .review-strip,
   .contact-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1123,9 +1217,14 @@ h3 {
   .area-grid,
   .itinerary-grid,
   .route-list,
+  .review-grid,
   .review-strip,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .review-card:first-child {
+    grid-row: auto;
   }
 
   h1 {
