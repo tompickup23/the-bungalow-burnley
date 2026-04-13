@@ -6,7 +6,19 @@ Static website for The Bungalow Burnley, designed to run on GitHub Pages without
 
 - Host: GitHub Pages
 - Source: `main` branch, repository root
-- DNS: Leave unchanged until the Pages deployment is live and reviewed
+- DNS: Cloudflare DNS points the apex and `www` records to GitHub Pages
+
+## Custom domain
+
+Target domain: `thebungalowburnley.co.uk`
+
+Repository includes a `CNAME` file for GitHub Pages custom-domain support.
+
+## Email
+
+Suggested contact mailbox: `bookings@thebungalowburnley.co.uk`
+
+Email routing plan: Cloudflare Email Routing forwards inbound mail to the owner's chosen Gmail/Hotmail account. SMTP2GO can be used for outbound sending from the domain.
 
 ## Legal readiness
 
@@ -17,12 +29,12 @@ Included:
 - Website terms
 - Safety information
 - Accessibility information
-- Booking/contact routing through the booking partner
+- Booking/contact routing by direct email
 
-Still required before custom-domain launch:
+Still required before full commercial launch:
 
 - Legal owner/operator name
-- Service email address
+- Service email address routing
 - Phone number, if direct phone support is offered
 - Correspondence address or registered office, if applicable
 - Company number and VAT number, if applicable
@@ -30,10 +42,10 @@ Still required before custom-domain launch:
 
 ## Later DNS stage
 
-Only after the site is approved, point the domain at the Pages site:
+Domain records for GitHub Pages:
 
 - Apex domain: GitHub Pages A records
 - `www`: CNAME to the GitHub Pages host
-- Add a `CNAME` file to this repository when the final domain is confirmed
+- `CNAME` is committed with `thebungalowburnley.co.uk`
 
-Do not change nameservers or DNS records before the live Pages URL has been checked.
+Keep GitHub Pages records set to DNS only in Cloudflare until Pages has verified the custom domain and HTTPS is active.

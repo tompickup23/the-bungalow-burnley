@@ -8,8 +8,8 @@
   --rose: #c84861;
   --sky: #d7edf1;
   --gold: #d9a845;
-  --line: #ded7cf;
-  --shadow: 0 28px 90px rgb(21 32 27 / 18%);
+  --line: #dadcdf;
+  --shadow: 0 28px 90px rgb(24 23 22 / 18%);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -65,7 +65,7 @@ h2 {
 }
 
 h1 {
-  max-width: 12ch;
+  max-width: min(12ch, 100%);
   font-size: clamp(3.25rem, 9vw, 7.25rem);
   line-height: .88;
 }
@@ -104,7 +104,7 @@ h3 {
   justify-content: space-between;
   gap: 22px;
   padding: 14px clamp(18px, 4vw, 58px);
-  background: rgb(247 243 238 / 82%);
+  background: rgb(246 247 248 / 86%);
   border-bottom: 1px solid rgb(24 23 22 / 10%);
   backdrop-filter: blur(22px);
   box-shadow: 0 10px 32px rgb(24 23 22 / 5%);
@@ -221,7 +221,7 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("assets/bungalow-exterior.jpg");
+  background-image: url("assets/outdoor-arrival.jpg");
   background-size: cover;
   background-position: center 44%;
   transform: scale(1.02);
@@ -501,7 +501,7 @@ h3 {
 
 .editorial-cards .card {
   min-height: 270px;
-  box-shadow: 0 18px 45px rgb(21 32 27 / 8%);
+  box-shadow: 0 18px 45px rgb(24 23 22 / 8%);
 }
 
 .editorial-cards .card:nth-child(2) {
@@ -524,6 +524,7 @@ h3 {
 .local-gallery {
   display: grid;
   grid-template-columns: 1.25fr .85fr .85fr;
+  grid-auto-flow: dense;
   gap: 14px;
   margin-top: 34px;
 }
@@ -624,14 +625,14 @@ h3 {
   color: var(--white);
   background:
     linear-gradient(90deg, rgb(24 23 22 / 92%), rgb(24 23 22 / 66%)),
-    url("assets/bungalow-exterior.jpg") center / cover;
+    url("assets/outdoor-arrival.jpg") center / cover;
 }
 
 .scenic-panel {
   min-height: 620px;
   background:
     linear-gradient(90deg, rgb(24 23 22 / 94%), rgb(24 23 22 / 62%) 56%, rgb(24 23 22 / 16%)),
-    url("assets/bungalow-exterior.jpg") center 42% / cover;
+    url("assets/outdoor-exterior.jpg") center 42% / cover;
 }
 
 .panel-dark p {
@@ -649,8 +650,9 @@ h3 {
 .page-hero {
   padding: 136px clamp(18px, 6vw, 78px) clamp(56px, 8vw, 92px);
   background:
-    linear-gradient(90deg, rgb(24 23 22 / 90%), rgb(24 23 22 / 50%)),
-    url("assets/hero-composite.svg") center / cover;
+    linear-gradient(90deg, rgb(24 23 22 / 94%), rgb(24 23 22 / 68%) 54%, rgb(24 23 22 / 22%)),
+    url("assets/bungalow-logo.jpg") right -90px center / min(62vw, 760px) auto no-repeat,
+    linear-gradient(135deg, #2d2b28, #181716);
   color: var(--white);
 }
 
@@ -658,6 +660,178 @@ h3 {
   max-width: 760px;
   color: rgb(255 255 255 / 86%);
   font-size: 1.18rem;
+}
+
+.area-hero {
+  min-height: 82svh;
+  align-items: end;
+  background:
+    linear-gradient(90deg, rgb(16 15 14 / 90%), rgb(16 15 14 / 54%) 46%, rgb(16 15 14 / 12%)),
+    linear-gradient(0deg, rgb(16 15 14 / 72%), rgb(16 15 14 / 6%) 48%),
+    var(--area-image, url("assets/pendle-hill-sunset.jpg")) center / cover;
+}
+
+.area-hero h1 {
+  max-width: 10ch;
+}
+
+.area-intro {
+  display: grid;
+  grid-template-columns: minmax(280px, .95fr) minmax(280px, .8fr);
+  gap: clamp(24px, 6vw, 82px);
+  align-items: end;
+}
+
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.area-card {
+  display: grid;
+  grid-template-rows: minmax(260px, 38vh) auto;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 46px rgb(24 23 22 / 8%);
+}
+
+.area-card img,
+.wide-photo img,
+.itinerary-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s ease, filter .7s ease;
+}
+
+.area-card:hover img,
+.wide-photo:hover img,
+.itinerary-card:hover img {
+  transform: scale(1.045);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.area-card-body {
+  padding: 24px;
+}
+
+.area-card-body p {
+  margin-bottom: 0;
+}
+
+.meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.meta-list li {
+  padding: 7px 10px;
+  color: var(--ink);
+  background: var(--mist-blue);
+  border-radius: 8px;
+  font-size: .88rem;
+  font-weight: 800;
+}
+
+.wide-photo {
+  position: relative;
+  min-height: 540px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--ink);
+}
+
+.wide-photo figcaption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  max-width: 680px;
+  padding: 18px;
+  color: var(--white);
+  background: rgb(16 15 14 / 72%);
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+}
+
+.wide-photo p,
+.wide-photo span {
+  color: rgb(255 255 255 / 78%);
+}
+
+.itinerary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.itinerary-card {
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.itinerary-card img {
+  height: 220px;
+}
+
+.itinerary-card div {
+  padding: 22px;
+}
+
+.route-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.route-card {
+  padding: 26px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.faq-list details {
+  padding: 20px;
+  background: var(--mist);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.faq-list summary {
+  color: var(--ink);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.faq-list p {
+  margin-bottom: 0;
 }
 
 .content {
@@ -785,8 +959,8 @@ h3 {
 }
 
 .is-enhanced .reveal {
-  opacity: 0;
-  transform: translateY(24px);
+  opacity: .82;
+  transform: translateY(14px);
   transition: opacity .7s ease, transform .7s ease;
 }
 
@@ -874,6 +1048,7 @@ h3 {
   .split,
   .opening,
   .visual-story,
+  .area-intro,
   .section-title-row,
   .panel-dark,
   .footer-grid {
@@ -883,6 +1058,9 @@ h3 {
   .facts,
   .cards,
   .local-gallery,
+  .area-grid,
+  .itinerary-grid,
+  .route-list,
   .review-strip,
   .contact-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -942,15 +1120,25 @@ h3 {
   .facts,
   .cards,
   .local-gallery,
+  .area-grid,
+  .itinerary-grid,
+  .route-list,
   .review-strip,
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
   h1 {
-    max-width: 9ch;
-    font-size: clamp(2.28rem, 11vw, 2.9rem);
+    max-width: 100%;
+    font-size: 2.9rem;
     line-height: .98;
+  }
+
+  .page-hero {
+    background:
+      linear-gradient(90deg, rgb(24 23 22 / 95%), rgb(24 23 22 / 78%) 62%, rgb(24 23 22 / 48%)),
+      url("assets/bungalow-logo.jpg") right -180px center / 560px auto no-repeat,
+      linear-gradient(135deg, #2d2b28, #181716);
   }
 
   .hero p:not(.eyebrow) {
@@ -960,6 +1148,14 @@ h3 {
   .hero {
     min-height: 86svh;
     padding-bottom: 24px;
+  }
+
+  .area-hero {
+    min-height: 74svh;
+  }
+
+  .wide-photo {
+    min-height: 420px;
   }
 
   .hero-art {

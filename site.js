@@ -47,7 +47,7 @@
   }
 
   const revealItems = document.querySelectorAll(
-    ".section, .facts article, .review-strip, .visual-story, .place-tile, .card, .contact-item"
+    ".section, .facts article, .review-strip, .visual-story, .place-tile, .card, .contact-item, .area-card, .itinerary-card, .route-card, .wide-photo"
   );
 
   revealItems.forEach(function (item) {

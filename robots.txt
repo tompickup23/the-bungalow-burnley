@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tompickup.co.uk/the-bungalow-burnley/sitemap.xml
+Sitemap: https://thebungalowburnley.co.uk/sitemap.xml
