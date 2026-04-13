@@ -6,6 +6,9 @@
 - Burnley holiday let
 - self-catering accommodation Burnley
 - self-catering Burnley
+- luxury self-catering Burnley
+- luxury holiday let Burnley
+- week-long self-catering stay Burnley
 - holiday cottage Burnley
 - holiday bungalow Burnley
 - one-bedroom holiday let Burnley
@@ -27,9 +30,9 @@
 
 ## Page mapping
 
-- `index.html`: Burnley holiday let, self-catering accommodation Burnley, holiday bungalow for two.
+- `index.html`: Burnley holiday let, luxury self-catering Burnley, holiday bungalow for two, home away from home.
 - `stay.html`: one-bedroom holiday bungalow, self-catering facilities, ground-floor stay.
-- `local-area.html`: things to do near Burnley, places to visit near Burnley, Burnley self-catering base.
+- `local-area.html`: things to do near Burnley, places to visit near Burnley, luxury self-catering holiday let Burnley, week-long self-catering stay.
 - `walks-and-viewpoints.html`: walks near Burnley, Pendle Hill from Burnley, canal walks, Singing Ringing Tree.
 - `halls-parks-and-gardens.html`: Towneley Hall, Thompson Park, Gawthorpe Hall, quieter Burnley days out.
 - `mills-and-heritage.html`: Queen Street Mill, Burnley heritage, Leeds and Liverpool Canal.
@@ -37,4 +40,4 @@
 
 ## Content rule
 
-Use search phrases in natural headings, meta descriptions, image alt text and internal links. Avoid exact opening times, ticket prices or distance claims unless they are checked immediately before publishing.
+Use search phrases in natural headings, meta descriptions, image alt text and internal links. Keep the tone useful and plain. Avoid exact opening times, ticket prices or distance claims unless they are checked immediately before publishing.
