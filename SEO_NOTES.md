@@ -41,3 +41,16 @@
 ## Content rule
 
 Use search phrases in natural headings, meta descriptions, image alt text and internal links. Keep the tone useful and plain. Avoid exact opening times, ticket prices or distance claims unless they are checked immediately before publishing.
+
+## Old indexed URLs
+
+GitHub Pages now serves lightweight replacement pages for old indexed paths:
+
+- `/about/` to `/the-bungalow.html`
+- `/gallery/` to `/the-bungalow.html`
+- `/gallery/lounge-dining-room/` to `/the-bungalow.html`
+- `/gallery/bedroom/` to `/stay.html`
+- `/gallery/kitchen/` to `/stay.html`
+- `/gallery/bathroom/` to `/stay.html`
+
+If Cloudflare Redirect Rules are available, convert these to permanent 301 redirects.
